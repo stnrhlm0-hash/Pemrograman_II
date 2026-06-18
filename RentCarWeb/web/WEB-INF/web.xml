@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.1"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd">
+
+    <!-- Mobil Servlet -->
+    <servlet>
+        <servlet-name>MobilServlet</servlet-name>
+        <servlet-class>src.java.servlet.MobilServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MobilServlet</servlet-name>
+        <url-pattern>/MobilServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Customer Servlet -->
+    <servlet>
+        <servlet-name>CustomerServlet</servlet-name>
+        <servlet-class>src.java.servlet.CustomerServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CustomerServlet</servlet-name>
+        <url-pattern>/CustomerServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Transaksi Servlet -->
+    <servlet>
+        <servlet-name>TransaksiServlet</servlet-name>
+        <servlet-class>src.java.servlet.TransaksiServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TransaksiServlet</servlet-name>
+        <url-pattern>/TransaksiServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Laporan Servlet -->
+    <servlet>
+        <servlet-name>LaporanServlet</servlet-name>
+        <servlet-class>src.java.servlet.LaporanServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LaporanServlet</servlet-name>
+        <url-pattern>/LaporanServlet</url-pattern>
+    </servlet-mapping>
+
+</web-app>

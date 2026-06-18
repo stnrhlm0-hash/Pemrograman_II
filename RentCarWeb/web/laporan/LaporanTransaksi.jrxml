@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jasperReport
+    xmlns="http://jasperreports.sourceforge.net/jasperreports"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+    http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+    name="LaporanTransasksi"
+    pageWidth="595"
+    pageHeight="842"
+    columnWidth="555"
+    leftMargin="20"
+    rightMargin="20"
+    topMargin="20"
+    bottomMargin="20">
+
+    <queryString>
+        <![CDATA[
+        SELECT
+            t.id_transaksi,
+            c.nama,
+            m.merk,
+            m.tipe,
+            t.tgl_sewa,
+            t.tgl_kembali,
+            t.lama_sewa,
+            t.total,
+            t.status
+        FROM transaksi t
+        JOIN customer c ON t.id_customer = c.id_customer
+        JOIN mobil m ON t.id_mobil = m.id_mobil
+        ]]>
+    </queryString>
+
+    <field name="id_transaksi" class="java.lang.Integer"/>
+    <field name="nama" class="java.lang.String"/>
+    <field name="merk" class="java.lang.String"/>
+    <field name="tipe" class="java.lang.String"/>
+    <field name="total" class="java.lang.Integer"/>
+    <field name="status" class="java.lang.String"/>
+
+    <title>
+        <band height="50">
+            <staticText>
+                <reportElement x="120" y="10" width="300" height="30"/>
+                <text><![CDATA[LAPORAN TRANSAKSI RENT CAR]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="25">
+
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <text><![CDATA[Nama Customer]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="130" y="0" width="120" height="20"/>
+                <text><![CDATA[Merk Mobil]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="260" y="0" width="100" height="20"/>
+                <text><![CDATA[Total]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="370" y="0" width="100" height="20"/>
+                <text><![CDATA[Status]]></text>
+            </staticText>
+
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="20">
+
+            <textField>
+                <reportElement x="0" y="0" width="120" height="20"/>
+                <textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="130" y="0" width="120" height="20"/>
+                <textFieldExpression><![CDATA[$F{merk}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="260" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="370" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </detail>
+
+</jasperReport>

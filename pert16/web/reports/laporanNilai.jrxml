@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="laporanNilai" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ee3f17a-ff4b-421c-abf4-54b28ae45ff0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+m.nim,
+m.nama,
+m.semester,
+m.kelas,
+k.kodeMataKuliah,
+k.namaMataKuliah,
+k.jumlahSks,
+n.nilaiTugas,
+n.nilaiUts,
+n.nilaiUas
+
+FROM dbaplikasipenilaianmahasiswa.tbnilai n
+
+JOIN dbaplikasipenilaianmahasiswa.tbmahasiswa m
+ON n.nim = m.nim
+
+JOIN dbaplikasipenilaianmahasiswa.tbmatakuliah k
+ON n.kodeMataKuliah = k.kodeMataKuliah]]>
+	</queryString>
+	<field name="nim" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nim"/>
+		<property name="com.jaspersoft.studio.field.label" value="nim"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbmahasiswa"/>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbmahasiswa"/>
+	</field>
+	<field name="semester" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="semester"/>
+		<property name="com.jaspersoft.studio.field.label" value="semester"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbmahasiswa"/>
+	</field>
+	<field name="kelas" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kelas"/>
+		<property name="com.jaspersoft.studio.field.label" value="kelas"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbmahasiswa"/>
+	</field>
+	<field name="kodeMataKuliah" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kodeMataKuliah"/>
+		<property name="com.jaspersoft.studio.field.label" value="kodeMataKuliah"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbmatakuliah"/>
+	</field>
+	<field name="namaMataKuliah" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="namaMataKuliah"/>
+		<property name="com.jaspersoft.studio.field.label" value="namaMataKuliah"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbmatakuliah"/>
+	</field>
+	<field name="jumlahSks" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="jumlahSks"/>
+		<property name="com.jaspersoft.studio.field.label" value="jumlahSks"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbmatakuliah"/>
+	</field>
+	<field name="nilaiTugas" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="nilaiTugas"/>
+		<property name="com.jaspersoft.studio.field.label" value="nilaiTugas"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbnilai"/>
+	</field>
+	<field name="nilaiUts" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="nilaiUts"/>
+		<property name="com.jaspersoft.studio.field.label" value="nilaiUts"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbnilai"/>
+	</field>
+	<field name="nilaiUas" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="nilaiUas"/>
+		<property name="com.jaspersoft.studio.field.label" value="nilaiUas"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbnilai"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="560" height="30" uuid="5fa6b52f-aa9b-42c9-959b-fd3580f6f3cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN NILAI MAHASISWA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="560" height="30" uuid="293b0b18-ba29-4257-9556-9793572d6ffa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITAS PAMULANG]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="70" height="30" uuid="64730164-0d16-432e-a7b0-b411d0d3d17a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[NIM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="0" width="70" height="30" uuid="91dada57-d49d-44c5-ac11-66cd786296e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="0" width="50" height="30" uuid="c04d490f-ce8d-4a9f-a247-d4d946d2da35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Semester]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="0" width="50" height="30" uuid="80febfb7-228d-4b6d-b379-9bbd91c6a8ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Kelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="60" height="30" uuid="91ff51e5-84e5-4b18-849f-02636d554a95"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Kode MK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="80" height="30" uuid="651492f7-ecea-4aa4-ad36-47a92652d3ea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nama Matkul]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="50" height="30" uuid="37567396-d139-4e42-9e43-50f58dd4121c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Jumlah SKS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="41" height="30" uuid="98ebaddf-9b9d-44ab-b598-a0e3cbcbaa01"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tugas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="471" y="0" width="39" height="30" uuid="e411f89e-1243-4411-8a76-ddda8fbf4f54"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[UTS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="0" width="50" height="30" uuid="0bc00701-a9e7-4a53-9f89-5b331ee4667a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[UAS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="70" height="40" uuid="3b176bef-c3d5-4b11-9f99-e36c2c732483">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8845600d-a08d-4a7a-9cff-e9cd1130185a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nim}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="0" width="70" height="40" uuid="796328b4-f6a3-4ab8-846e-220c1cc67575">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cce9a77d-5b18-4ff1-bd52-0fbfa1814b07"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="50" height="40" uuid="dc947b26-660c-43fc-90d1-7538ee9fef06">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="795b7412-fcea-4217-964b-b96771adb5ca"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{semester}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="50" height="40" uuid="4164bf6a-8812-4559-bc70-65f055303c32">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2f82e39-5198-471a-a18d-5452e03d4082"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{kelas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="60" height="40" uuid="0526afca-7b27-4087-ae4b-30eee3640394">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="28728317-5949-43fd-bb29-3a4c71fe7993"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{kodeMataKuliah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="80" height="40" uuid="f93302a7-2479-4ef4-94a8-657e363e982f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c29888b0-a0c9-4737-b413-28ef6dcf832e"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{namaMataKuliah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="50" height="40" uuid="372fc1db-1f03-42fc-af74-9a3d674dfbcf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c24052f8-fa25-4cbd-aab1-56b036168035"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{jumlahSks}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="41" height="40" uuid="0bbf6964-fdca-46f3-81f8-d1c29997c1d9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="06ba46db-82b1-4542-a8a3-f304dcfcbbcc"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nilaiTugas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="0" width="39" height="40" uuid="1f712022-a791-4772-be60-db744322b661">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1f2ad666-0cce-4e39-ac3b-a2f0dfcd6695"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nilaiUts}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="0" width="50" height="40" uuid="0dbb242b-8e6b-47b1-ae77-7b03f04f037d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b90e40ef-4b12-4501-91bd-7972731d64ca"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nilaiUas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
